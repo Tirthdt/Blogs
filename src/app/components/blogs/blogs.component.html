@@ -1,0 +1,19 @@
+<div class="container">
+  <div
+    class="card mb-3"
+    [ngClass]="{
+      'border-success': i % 3 == 0,
+      'border-warning': i % 3 == 1,
+      'border-info': i % 3 == 2
+    }"
+    *ngFor="let blog of blogs; let i = index"
+  >
+    <div class="card-header">{{ blog.title }}</div>
+    <div class="card-body">
+      <h4 class="card-title">{{ blog.author }}</h4>
+      <p class="card-text">
+        {{ blog.body }}
+      </p>
+    </div>
+  </div>
+</div>
