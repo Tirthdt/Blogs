@@ -10,31 +10,31 @@ export class BlogserviceService {
     {
       id: 1,
       title: "Title 1",
-      author: "Mr.abc",
+      authorId: 1,
       body: "Some text abc",
     },
     {
       id: 2,
       title: "Title 2",
-      author: "Mr.pqr",
+      authorId: 2,
       body: "Some text abc",
     },
     {
       id: 3,
       title: "Title 3",
-      author: "Mr.kmn",
+      authorId: 3,
       body: "Some text abc",
     },
     {
       id: 4,
       title: "Title 4",
-      author: "Mr.abc",
+      authorId: 1,
       body: "Some text abc",
     },
     {
       id: 5,
       title: "Title 5",
-      author: "Mr.abc",
+      authorId: 1,
       body: "Some text abc",
     },
   ];

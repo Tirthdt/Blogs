@@ -1,8 +1,26 @@
 <div class="container">
-  <div class="row">
+  <div class="row mt-1">
     <div class="col-md-8">
       <div *ngIf="blogs.length > 0; else elseTemplate">
-        hahah
+        <div class="container">
+          <div
+            class="card mb-3"
+            [ngClass]="{
+              'border-success': i % 3 == 0,
+              'border-warning': i % 3 == 1,
+              'border-info': i % 3 == 2
+            }"
+            *ngFor="let blog of blogs; let i = index"
+          >
+            <div class="card-header">{{ blog.title }}</div>
+            <div class="card-body">
+              <h4 class="card-title">{{ blog.author }}</h4>
+              <p class="card-text">
+                {{ blog.body }}
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
       <ng-template #elseTemplate>
         <h1>No Blogs Yet!!</h1>
@@ -10,21 +28,22 @@
     </div>
     <div class="col-md-4">
       <div class="card mb-3">
-        <h3 class="card-header">Profile Holder Name</h3>
+        <h3 class="card-header">{{ profile.name }}</h3>
 
         <img
           style="height: 200px; width: 100%; display: block;"
-          src="https://stickershop.line-scdn.net/stickershop/v1/product/718/LINEStorePC/main.png;compress=true"
+          [src]="profile.image"
           alt="Card image"
         />
         <div class="card-body">
           <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
+            {{ profile.about }}
           </p>
         </div>
         <div class="card-body">
-          <a href="#" class="card-link">Edit profile</a>
+          <a [routerLink]="['editProfile', profile.id]" class="card-link"
+            >Edit profile</a
+          >
         </div>
       </div>
     </div>
