@@ -42,4 +42,8 @@ export class BlogserviceService {
   getBlogs() {
     return this.blogs;
   }
+
+  getBlog(id) {
+    return this.blogs[id];
+  }
 }

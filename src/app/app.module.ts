@@ -11,11 +11,13 @@ import { EditProfileComponent } from "./components/profile/edit-profile/edit-pro
 
 import { BlogserviceService } from "./services/blogservice.service";
 import { ProfileService } from "./services/profile.service";
+import { BlogDetailComponent } from "./components/blogs/blog-detail/blog-detail.component";
 
 const routes: Routes = [
   { path: "", component: BlogsComponent },
   { path: "profile", component: ProfileComponent },
   { path: "profile/editProfile/:id", component: EditProfileComponent },
+  { path: "blogDetail/:id", component: BlogDetailComponent },
 ];
 
 @NgModule({
@@ -25,6 +27,7 @@ const routes: Routes = [
     BlogsComponent,
     ProfileComponent,
     EditProfileComponent,
+    BlogDetailComponent,
   ],
   imports: [BrowserModule, FormsModule, RouterModule.forRoot(routes)],
   providers: [BlogserviceService, ProfileService],

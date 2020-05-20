@@ -18,6 +18,9 @@ export class ProfileService {
   getProfile() {
     return this.profile;
   }
+  getProfilebyId(id) {
+    return this.profile;
+  }
   updateProfile(name, about) {
     this.profile.name = name;
     this.profile.about = about;
