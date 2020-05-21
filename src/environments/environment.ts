@@ -4,15 +4,8 @@
 
 export const environment = {
   production: false,
-  firebaseConfig: {
 
-
-    databaseURL: "https://sample-b0
-
-
-
-
-
+  
 };
 
 /*
