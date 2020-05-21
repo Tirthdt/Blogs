@@ -1,46 +1,30 @@
 import { Injectable } from "@angular/core";
+import { AngularFireDatabase } from "@angular/fire/database";
+import { Observable } from "rxjs";
+import { Title } from "@angular/platform-browser";
 
 @Injectable({
   providedIn: "root",
 })
 export class BlogserviceService {
-  constructor() {}
-
-  blogs: any[] = [
-    {
-      id: 1,
-      title: "Title 1",
-      authorId: 1,
-      body: "Some text abc",
-    },
-    {
-      id: 2,
-      title: "Title 2",
-      authorId: 2,
-      body: "Some text abc",
-    },
-    {
-      id: 3,
-      title: "Title 3",
-      authorId: 3,
-      body: "Some text abc",
-    },
-    {
-      id: 4,
-      title: "Title 4",
-      authorId: 1,
-      body: "Some text abc",
-    },
-    {
-      id: 5,
-      title: "Title 5",
-      authorId: 1,
-      body: "Some text abc",
-    },
-  ];
+  items: Observable<any[]>;
+  private sub: any;
+  blogs: any[];
+  constructor(public db: AngularFireDatabase) {
+    this.items = db.list("blogs").valueChanges();
+    this.sub = this.items.subscribe((data) => {
+      this.blogs = data;
+    });
+  }
 
   getBlogs() {
-    return this.blogs;
+    return this.db.list("blogs").valueChanges();
+  }
+
+  saveBlog(title, description, content) {
+    this.db
+      .list("blogs")
+      .push({ title: title, description: description, content: content });
   }
 
   getBlog(id) {
