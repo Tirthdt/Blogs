@@ -23,6 +23,20 @@
       <li class="nav-item">
         <a routerLink="blogAdd" class="nav-link">Add Blog</a>
       </li>
+      <ng-template #showLogin>
+        <li class="nav-item">
+          <a routerLink="login" class="nav-link btn btn-success">Login</a>
+        </li>
+      </ng-template>
+
+      <li class="nav-item" *ngIf="user; else showLogin">
+        <a
+          routerLink="logout"
+          (click)="logout()"
+          class="nav-link btn btn-success"
+          >Logout</a
+        >
+      </li>
     </ul>
   </div>
 </nav>

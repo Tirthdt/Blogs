@@ -12,7 +12,13 @@
             }"
             *ngFor="let blog of blogs; let i = index"
           >
-            <div class="card-header">{{ blog.title }}</div>
+            <div class="card-header">
+              <a
+                style="text-decoration: none;"
+                [routerLink]="['blogDetail', i]"
+                >{{ blog.title }}</a
+              >
+            </div>
             <div class="card-body">
               <h4 class="card-title">{{ blog.description }}</h4>
               <p class="card-text">

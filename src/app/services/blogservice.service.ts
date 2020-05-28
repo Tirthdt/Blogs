@@ -28,6 +28,6 @@ export class BlogserviceService {
   }
 
   getBlog(id) {
-    return this.blogs[id];
+    return this.blogs[id - 1];
   }
 }
