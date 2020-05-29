@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
-// import { AuthenticationService } from "../../services/authentication.service";
-import { AngularFireAuth } from "@angular/fire/auth";
-import { auth } from "firebase/app";
+import { AuthenticationService } from "../../services/authentication.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-navbar",
@@ -9,15 +8,18 @@ import { auth } from "firebase/app";
   styleUrls: ["./navbar.component.css"],
 })
 export class NavbarComponent implements OnInit, OnDestroy {
-  user: any;
-  sub: any;
-  constructor() {
-    this.user = localStorage.getItem("userId");
-  }
+  constructor(
+    public authService: AuthenticationService,
+    public router: Router
+  ) {}
 
   ngOnInit() {}
 
   ngOnDestroy(): void {}
 
-  logout() {}
+  logout() {
+    this.authService.signOut().then(() => {
+      this.router.navigate(["login"]);
+    });
+  }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { AuthenticationService } from "../../services/authentication.service";
-import { AngularFireAuth } from "@angular/fire/auth";
-import { auth } from "firebase/app";
+import { Router } from "@angular/router";
+
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
@@ -12,11 +12,13 @@ export class LoginComponent implements OnInit {
   password = "";
   sub: any;
 
-  constructor(public auth: AuthenticationService) {}
+  constructor(public auth: AuthenticationService, public router: Router) {}
 
   ngOnInit() {}
 
   onSubmit(f) {
-    this.auth.login(this.email, this.password);
+    this.auth.signIn(this.email, this.password).then(() => {
+      this.router.navigate([""]);
+    });
   }
 }
