@@ -21,10 +21,15 @@ export class BlogserviceService {
     return this.db.list("blogs").valueChanges();
   }
 
-  saveBlog(title, description, content) {
+  saveBlog(title, description, content, uid) {
     this.db
       .list("blogs")
-      .push({ title: title, description: description, content: content });
+      .push({
+        title: title,
+        description: description,
+        content: content,
+        uid: uid,
+      });
   }
 
   getBlog(id) {

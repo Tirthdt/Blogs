@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">Navbar</a>
   <button
     class="navbar-toggler"
@@ -24,12 +24,7 @@
 
       <ng-template #guest>
         <li class="nav-item">
-          <a
-            routerLink="login"
-            (click)="signIn()"
-            class="nav-link btn btn-success"
-            >Login</a
-          >
+          <a routerLink="login" class="nav-link btn btn-success">Login</a>
         </li>
       </ng-template>
       <ng-template #authenticated>
@@ -43,15 +38,6 @@
           <a (click)="logout()" class="nav-link btn btn-success">Logout</a>
         </li>
       </ng-template>
-
-      <!-- <li class="nav-item" *ngIf="user; else showLogin">
-        <a
-          routerLink="logout"
-          (click)="logout()"
-          class="nav-link btn btn-success"
-          >Logout</a
-        >
-      </li> -->
     </ul>
   </div>
 </nav>
